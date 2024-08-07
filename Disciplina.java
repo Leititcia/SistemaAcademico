@@ -23,7 +23,24 @@ public class Disciplina {
 		 this.creditos = creditos;
 	}
 		    
-
+	public static void cadastrarDisciplina() {
+		    	
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Informe o código da disciplina:");
+		int idDisciplina = input.nextInt();
+		input.nextLine();
+		
+		System.out.println("Informe o nome da disciplina:");
+		String nomeDisciplina = input.nextLine();
+		
+		System.out.println("Informe a carga horária da disciplina:");
+		int cargaHoraria = input.nextInt();
+		
+		System.out.println("Informe os crédiots da disciplina:");
+		int creditos = input.nextInt();
+		
+	}
 
 	
 }
