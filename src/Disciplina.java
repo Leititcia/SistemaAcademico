@@ -1,22 +1,22 @@
-package Main;
-
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.List;
-public class Disciplina {
+import java.util.Scanner;
 
+public class Disciplina {
     public int idDisciplina;
     public String nomeDisciplina;
     public int cargaHoraria;
-    public List<Professor> professores;
-    public List<Turma> turmas;
 
-    public Disciplina(int idDisciplina, String nomeDisciplina, int cargaHoraria) {
+    public Professor professor;
+
+    public Disciplina() {
+
+    }
+
+    public Disciplina(int idDisciplina, String nomeDisciplina, int cargaHoraria, Professor professor) {
         this.idDisciplina = idDisciplina;
         this.nomeDisciplina = nomeDisciplina;
         this.cargaHoraria = cargaHoraria;
-        this.professores = new ArrayList<>();
-        this.turmas = new ArrayList<>();
+        this.professor = professor;
     }
 
     public static Disciplina cadastrarDisciplina() {
@@ -33,8 +33,10 @@ public class Disciplina {
         System.out.println("Informe a carga horária da disciplina:");
         int cargaHoraria = input.nextInt();
 
+        System.out.println("Disciplina cadastrada!");
 
-        return new Disciplina(idDisciplina, nomeDisciplina, cargaHoraria);
+        Professor professor1 = Professor.cadastrarProfessor();
+
+        return new Disciplina(idDisciplina, nomeDisciplina, cargaHoraria, professor1);
     }
-
 }
