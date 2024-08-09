@@ -1,22 +1,21 @@
-package Main;
-
+import java.util.List;
 import java.util.Scanner;
-public class Professor {
 
+public class Professor {
     public int idProfessor;
     public String nome;
 
+    public static List<Turma> turmas;
 
-    Professor() {
+    public Professor() {}
 
-    }
-
-    Professor(int idProfessor, String nome) {
+    public Professor(int idProfessor, String nome, List<Turma> turmas) {
         this.idProfessor = idProfessor;
         this.nome = nome;
+        this.turmas = turmas;
     }
 
-    public static void cadastrarProfessor() {
+    public static Professor cadastrarProfessor() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Informe o código do professor:");
@@ -28,6 +27,12 @@ public class Professor {
 
         System.out.println("Professor cadastrado!");
 
-    }
+        Turma turma = new Turma();
+        Turma turma1 = turma.cadastraTurma();
+        turmas.add(turma1);
+        Professor professor = new Professor(idProfessor, nome, turmas);
 
+        return professor;
+
+    }
 }
