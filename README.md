@@ -14,7 +14,7 @@ O **Sistema Acadêmico** é uma aplicação Java simples desenvolvida para geren
 
 1. Abra o terminal e execute o seguinte comando para clonar o repositório:
     ```
-    git clone https://github.com/seu-usuario/sistema-academico.git
+    git clone https://github.com/Leititcia/SistemaAcademico.git
     ```
 
 2. Navegue até o diretório `src` do projeto.
