@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -5,22 +6,25 @@ public class Disciplina {
     public int idDisciplina;
     public String nomeDisciplina;
     public int cargaHoraria;
-
     public Professor professor;
+    public List<Turma> turmas; // Lista de turmas associadas à disciplina
 
-    public Disciplina() {
-
-    }
-
+    // Construtor com professor
     public Disciplina(int idDisciplina, String nomeDisciplina, int cargaHoraria, Professor professor) {
         this.idDisciplina = idDisciplina;
         this.nomeDisciplina = nomeDisciplina;
         this.cargaHoraria = cargaHoraria;
         this.professor = professor;
+        this.turmas = new ArrayList<>(); // Inicializa a lista de turmas
     }
 
-    public static Disciplina cadastrarDisciplina() {
+    // Construtor sem professor
+    public Disciplina(int idDisciplina, String nomeDisciplina, int cargaHoraria) {
+        this(idDisciplina, nomeDisciplina, cargaHoraria, null);
+    }
 
+    // Método para cadastrar uma nova disciplina
+    public static Disciplina cadastrarDisciplina() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Informe o código da disciplina:");
@@ -32,11 +36,61 @@ public class Disciplina {
 
         System.out.println("Informe a carga horária da disciplina:");
         int cargaHoraria = input.nextInt();
+        input.nextLine();
 
-        System.out.println("Disciplina cadastrada!");
+        // Pergunta se deseja cadastrar uma turma
+        System.out.println("Deseja cadastrar uma turma para esta disciplina? (s/n)");
+        String resposta = input.nextLine();
+        List<Turma> turmas = new ArrayList<>();
 
-        Professor professor1 = Professor.cadastrarProfessor();
+        if (resposta.equalsIgnoreCase("s")) {
+            Turma novaTurma = Turma.cadastraTurma();
+            turmas.add(novaTurma); // Adiciona a turma à disciplina
+        }
 
-        return new Disciplina(idDisciplina, nomeDisciplina, cargaHoraria, professor1);
+        // Cadastra o professor antes de associá-lo à disciplina
+        System.out.println("Deseja associar um professor à disciplina? (s/n)");
+        resposta = input.nextLine();
+        Professor professor = null;
+
+        if (resposta.equalsIgnoreCase("s")) {
+            professor = Professor.cadastrarProfessor();
+        }
+
+        // Retorna nova disciplina com professor
+        Disciplina novaDisciplina = new Disciplina(idDisciplina, nomeDisciplina, cargaHoraria, professor);
+        novaDisciplina.turmas.addAll(turmas);
+        return novaDisciplina;
+    }
+
+    // Método para adicionar uma turma à disciplina
+    public void addTurma(Turma turma) {
+        turmas.add(turma);
+    }
+
+    // Método para definir o professor da disciplina
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    // Getters
+    public int getIdDisciplina() {
+        return idDisciplina;
+    }
+
+    public String getNomeDisciplina() {
+        return nomeDisciplina;
+    }
+
+    public int getCargaHoraria() {
+        return cargaHoraria;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public List<Turma> getTurmas() {
+        return turmas;
     }
 }
