@@ -1,40 +1,24 @@
-import java.util.List;
 import java.util.Scanner;
 
 public class Turma {
-    public String nomeTurma;
+    private String nomeTurma;
 
-    public Turma() {
-
-    }
     public Turma(String nomeTurma) {
         this.nomeTurma = nomeTurma;
     }
 
-    public Turma cadastraTurma() {
+    // Método para cadastrar uma nova turma
+    public static Turma cadastraTurma() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Nome dessa turma suja e fedida: ");
+        System.out.println("Informe o nome da turma:");
         String nomeTurma = input.nextLine();
 
-        Turma turma = new Turma(nomeTurma);
-
-        return turma;
+        return new Turma(nomeTurma);
     }
 
-    public static void listarTurmas(List<Disciplina> disciplinas) {
-        if (!disciplinas.isEmpty()) {
-            System.out.println("Turmas para a disciplina :");
-             for (Disciplina disciplina : disciplinas) {
-                for (Turma turma : disciplina.professor.turmas) {
-                    System.out.println("Turma: " + turma.nomeTurma +
-                            ", Professor: " + disciplina.professor.nome);
-                }
-            }
-        }else {
-
-            System.out.println("Não há turmas cadastradas");
-        }
+    // Getter
+    public String getNomeTurma() {
+        return nomeTurma;
     }
-
 }
