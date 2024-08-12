@@ -11,7 +11,7 @@ public class Main {
 
         while (true) {
 
-            System.out.println("*******************************");
+            System.out.println("\n*******************************");
             System.out.println("Bem-vindo ao Sistema Acadêmico!");
             System.out.println("*******************************");
 
@@ -31,16 +31,16 @@ public class Main {
 
             } else if (op == 2) {
                 
-                System.out.println("Informe o código do professor:");
+                System.out.println("\nInforme o código do professor:");
                 int idProfessor = input.nextInt();
                 input.nextLine();
 
-                System.out.println("Informe o nome do professor:");
+                System.out.println("\nInforme o nome do professor:");
                 String nomeProfessor = input.nextLine();
 
                 Professor novoProfessor = new Professor(idProfessor, nomeProfessor);
 
-                System.out.println("Selecione a disciplina para associar o professor:");
+                System.out.println("\nSelecione a disciplina para associar o professor:");
                 for (Disciplina disciplina : disciplinaList) {
                     System.out.println(disciplina.getIdDisciplina() + ": " + disciplina.getNomeDisciplina());
                 }
@@ -58,9 +58,9 @@ public class Main {
                 
             } else if (op == 3) {
                 
-                System.out.println("Lista de turmas por disciplina:");
+                System.out.println("\nLista de turmas por disciplina:");
                 for (Disciplina disciplina : disciplinaList) {
-                    System.out.println("Disciplina: " + disciplina.getNomeDisciplina());
+                    System.out.println("\nDisciplina: " + disciplina.getNomeDisciplina());
                     if (disciplina.getTurmas().isEmpty()) {
                         System.out.println("Nenhuma turma cadastrada");
                     } else {

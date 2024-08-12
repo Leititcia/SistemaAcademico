@@ -13,11 +13,11 @@ public class Professor {
     public static Professor cadastrarProfessor() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Informe o código do professor:");
+        System.out.println("\nInforme o código do professor:");
         int idProfessor = input.nextInt();
         input.nextLine();
 
-        System.out.println("Informe o nome do professor:");
+        System.out.println("\nInforme o nome do professor:");
         String nome = input.nextLine();
 
         return new Professor(idProfessor, nome);

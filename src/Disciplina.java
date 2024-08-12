@@ -27,19 +27,19 @@ public class Disciplina {
     public static Disciplina cadastrarDisciplina() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Informe o código da disciplina:");
+        System.out.println("\nInforme o código da disciplina:");
         int idDisciplina = input.nextInt();
         input.nextLine();
 
-        System.out.println("Informe o nome da disciplina:");
+        System.out.println("\nInforme o nome da disciplina:");
         String nomeDisciplina = input.nextLine();
 
-        System.out.println("Informe a carga horária da disciplina:");
+        System.out.println("\nInforme a carga horária da disciplina:");
         int cargaHoraria = input.nextInt();
         input.nextLine();
 
         // Pergunta se deseja cadastrar uma turma
-        System.out.println("Deseja cadastrar uma turma para esta disciplina? (s/n)");
+        System.out.println("\nDeseja cadastrar uma turma para esta disciplina? (s/n)");
         String resposta = input.nextLine();
         List<Turma> turmas = new ArrayList<>();
 
@@ -49,7 +49,7 @@ public class Disciplina {
         }
 
         // Cadastra o professor antes de associá-lo à disciplina
-        System.out.println("Deseja associar um professor à disciplina? (s/n)");
+        System.out.println("\nDeseja associar um professor à disciplina? (s/n)");
         resposta = input.nextLine();
         Professor professor = null;
 

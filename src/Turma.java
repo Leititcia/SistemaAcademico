@@ -11,7 +11,7 @@ public class Turma {
     public static Turma cadastraTurma() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Informe o nome da turma:");
+        System.out.println("\nInforme o nome da turma:");
         String nomeTurma = input.nextLine();
 
         return new Turma(nomeTurma);
